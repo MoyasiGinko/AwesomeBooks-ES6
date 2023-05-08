@@ -1,5 +1,3 @@
-import UI from "./ui.js";
-
 class Store {
 #root;
 #list;
@@ -19,26 +17,11 @@ constructor() {
     this.#listContainer = document.getElementById("list-container");
     this.#addContainer = document.getElementById("main");
     this.#contactContainer = document.getElementById("contact");
-    // this.createForm();
     this.addBook();
     this.deleteBook();
-    this.renderUI();
+    this.render();
     this.saveLibrary();
-    // this.hideNavLinks();
-    // this.addNav();
-    // this.listNav()
-    // this.contactNav();
 }
-
-getLibrary() {
-    return this.#library;
-  };
-
-  
-  renderUI() {
-    const ui = new UI();
-    ui.render();
-  };
 
 addBook = () => {
     const form = document.querySelector("#form-container");
@@ -63,8 +46,8 @@ addBook = () => {
       title.value = "";
       author.value = "";
 
-      this.renderUI();
-    //   this.#listContainer.style.display = "none";
+      this.render();
+      this.#listContainer.style.display = "none";
     });
 };
 
@@ -82,8 +65,31 @@ deleteBook = () => {
         const bookIndex = event.target.dataset.index;
         this.#library.splice(bookIndex, 1);
 
-        this.renderUI();
+        this.render();
       }
+    });
+};
+
+render = () => {
+    const libraryContainer = document.getElementById("library-container");
+    const border = document.getElementById("list-container");
+    border.style.display = 'none';
+    libraryContainer.innerHTML = "";
+
+    this.#library.forEach((book, index) => {
+        const bookContainer = document.createElement("div");
+        bookContainer.classList.add("book");
+        bookContainer.innerHTML = `
+        <ul class="book-items">
+            <li class="book-title">"${book.title}" by ${book.author}</li>
+            <button type="button" class="remove-book" data-index="${index}">Remove</button>
+        </ul>
+        `;
+
+        if (this.#library.length !== 0) {
+        border.style.display = 'block';
+        }
+        libraryContainer.appendChild(bookContainer);
     });
 };
 }
