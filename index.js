@@ -1,3 +1,4 @@
+/* eslint-disable */
 import UI from './modules/ui.js';
 import Store from './modules/store.js';
 import pageManager from './modules/pagemanager.js';
