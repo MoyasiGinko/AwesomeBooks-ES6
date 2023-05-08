@@ -18,14 +18,6 @@ constructor() {
     this.#addContainer = document.getElementById("main");
     this.#contactContainer = document.getElementById("contact");
     this.createForm();
-    // this.addBook();
-    // this.deleteBook();
-    this.render();
-    // this.saveLibrary();
-    // this.hideNavLinks();
-    // this.addNav();
-    // this.listNav()
-    // this.contactNav();
 }
 
   createForm = () => {
@@ -53,30 +45,6 @@ constructor() {
     });
   };
 
-render = () => {
-    const libraryContainer = document.getElementById("library-container");
-    const border = document.getElementById("list-container");
-    border.style.display = 'none';
-    libraryContainer.innerHTML = "";
-
-    this.#library.forEach((book, index) => {
-        const bookContainer = document.createElement("div");
-        bookContainer.classList.add("book");
-        bookContainer.innerHTML = `
-        <ul class="book-items">
-            <li class="book-title">"${book.title}" by ${book.author}</li>
-            <button type="button" class="remove-book" data-index="${index}">Remove</button>
-        </ul>
-        `;
-
-        if (this.#library.length !== 0) {
-        border.style.display = 'block';
-        }
-        libraryContainer.appendChild(bookContainer);
-    });
-};
-
 }
-
 
 export default UI;
