@@ -1,4 +1,3 @@
-/* eslint-disable */
 class Store {
 #root;
 
@@ -19,9 +18,7 @@ class Store {
 constructor() {
   this.#root = document.querySelector('#main');
   this.#library = JSON.parse(localStorage.getItem('library')) || [];
-  this.#list = document.querySelectorAll('#nav-links li')[0];
-  this.#addBook = document.querySelectorAll('#nav-links li')[1];
-  this.#contact = document.querySelectorAll('#nav-links li')[2];
+  [this.#list, this.#addBook, this.#contact] = document.querySelectorAll('#nav-links li');
   this.#listContainer = document.getElementById('list-container');
   this.#addContainer = document.getElementById('main');
   this.#contactContainer = document.getElementById('contact');
@@ -33,6 +30,7 @@ constructor() {
 
 addBook = () => {
   const form = document.querySelector('#form-container');
+  const errorMessage = document.querySelector('#error-message');
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -41,21 +39,21 @@ addBook = () => {
     const author = document.querySelector('#author');
 
     if (title.value.trim() === '' || author.value.trim() === '') {
-      alert('Please enter a title and author');
-      return;
+      errorMessage.textContent = 'Please fill out empty inputs';
+    } else {
+      const book = {
+        title: title.value,
+        author: author.value,
+      };
+
+      this.#library.push(book);
+      title.value = '';
+      author.value = '';
+
+      this.render();
+      this.#listContainer.style.display = 'none';
+      errorMessage.textContent = ''; // Clear the error message if inputs are valid
     }
-
-    const book = {
-      title: title.value,
-      author: author.value,
-    };
-
-    this.#library.push(book);
-    title.value = '';
-    author.value = '';
-
-    this.render();
-    this.#listContainer.style.display = 'none';
   });
 };
 

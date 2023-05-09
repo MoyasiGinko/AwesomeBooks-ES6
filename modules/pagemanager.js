@@ -1,4 +1,3 @@
-/* eslint-disable */
 class pageManager {
   #library;
 
@@ -19,9 +18,7 @@ class pageManager {
   constructor() {
     this.#root = document.querySelector('#main');
     this.#library = JSON.parse(localStorage.getItem('library')) || [];
-    this.#list = document.querySelectorAll('#nav-links li')[0];
-    this.#addBook = document.querySelectorAll('#nav-links li')[1];
-    this.#contact = document.querySelectorAll('#nav-links li')[2];
+    [this.#list, this.#addBook, this.#contact] = document.querySelectorAll('#nav-links li');
     this.#listContainer = document.getElementById('list-container');
     this.#addContainer = document.getElementById('main');
     this.#contactContainer = document.getElementById('contact');
