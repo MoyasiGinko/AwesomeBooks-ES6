@@ -180,3 +180,9 @@ label {
 #contact ul li:last-child {
   list-style: disc;
 }
+
+#error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
