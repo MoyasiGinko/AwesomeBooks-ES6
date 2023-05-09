@@ -76,7 +76,7 @@
 
 > Checkout the project 👇
 
-- [Live Demo Link](https://wwwdrt.github.io/awesomebooks/)
+- [Live Demo Link](https://moyasiginko.github.io/AwesomeBooks-ES6/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,7 +108,7 @@ Example commands:
 
 ```sh
   cd my-folder
-  git clone https://github.com/wwwdrt/awesomebooks.git 
+  git clone https://github.com/MoyasiGinko/AwesomeBooks-ES6.git 
 ```
 
 -
@@ -116,8 +116,6 @@ Example commands:
 ### Install
 
 Install this project with:
-
-N/A
 
 Example command:
 
@@ -155,12 +153,6 @@ GitHub pages
 ## 👥 Authors <a name="authors"></a>
 
 > Meet the creators of awesomebooks 😎
-
-👤 *DRT*
-
-- GitHub: [@wwwdrt](https://github.com/wwwdrt)
-- Twitter: [@drtcode](https://twitter.com/drtcode)
-- Linktree: [@drtcode](https://linktr.ee/drtcode)
 
 👤 **Moyasi**
 
